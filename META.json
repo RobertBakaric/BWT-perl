@@ -1,0 +1,52 @@
+{
+   "abstract" : "Simple Burrows–Wheeler transform demo program",
+   "author" : [
+      "Robert Bakaric <rbakaric@irb.hr>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142690",
+   "license" : [
+      "unknown"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "BWT",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::Slurp" : "0",
+            "Getopt::Long" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "BWT::Simple" : {
+         "file" : "Simple.pm",
+         "version" : "0.01"
+      },
+      "SA::SuffixArray" : {
+         "file" : "SuffixArray.pm",
+         "version" : "0.01"
+      }
+   },
+   "release_status" : "stable",
+   "version" : "0.01"
+}

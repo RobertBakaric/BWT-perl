@@ -1,0 +1,90 @@
+NAME
+    BWT - Burrows-Wheeler Transform 
+
+SYNOPSIS
+        use BWT::Simple;
+        use SA::SuffixArray;
+
+        my $bwt1S = BWT::Simple->new();
+        my $sa = SA::SuffixArray->new();
+    
+        # -----        Compute suffix array        ----- #
+        my @suftab = $sa->Sort_Suffixes(array => \@array);
+
+        # -----             BWT encode             ----- #
+        my $bwtencode = $bwt1S->BWT_encode(suftab => \@suftab, string => \@array);
+
+        # -----             BWT decode             ----- #
+        my $bwtdecode = $bwt1S->BWT_decode(bwt => $bwtencode, terminator => $terminator);
+
+DESCRIPTION
+   The BWT is used in many lossless data compression schemes, one of
+   which is the Julian Seward's bzip2 program. It is usually computed 
+   by sorting all suffixes of a string S according to lexicographic 
+   order after which a sequence of characters at positions preceding 
+   sorted suffixes, is recorder. This sequence is known as Burrows-
+   Wheeler transform.
+
+  new
+        my $bwt1S = BWT::Simple->new();
+
+    Creates a new BWT object.
+
+        my $sa = SA::SuffixArray->new();
+
+    Creates a new suffix array object.
+
+  Sort_Suffixes
+
+        my @suftab = $sa->Sort_Suffixes(array => \@array);
+
+        Where \@array is an array reference of string characters.
+
+        Function returns the lexicographically sorted array of indexes
+        corresponding to starting positions of string suffixes. Function is a
+        simple quicksort based sorting lagorithm with O(n log n) worst case
+        runtime behaviour.
+
+  BWT_encode
+        my $bwtencode = $bwt1S->BWT_encode(suftab => \@suftab, string => \@array);
+
+        Function requires a sorted suffix array (suftab) and a string (string)
+        both as array references. As a result it returns the computed BWT array
+
+  BWT_decode
+        my $bwtdecode = $bwt1S->BWT_decode(bwt => $bwtencode, terminator => $terminator);
+
+        Once encoded, BWT can be decoded back using BWT_decode function. The 
+        function requires BWT encod string and a string terminating character.
+
+AUTHOR
+    Robert Bakaric <rbakaric@irb.hr>
+
+LICENSE
+
+
+
+#  Copyright 2015 Robert Bakaric <rbakaric@irb.hr>
+#  
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#  
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#  
+#  
+
+
+ACKNOWLEDGEMENT
+          1. Adjeroh, D., Bell, T. and Mukherjee, A. 2008. The Burrows-Wheeler Transform: Data Compression, Suffix Arrays, and Pattern Matching.    
+          Springer US.
+

@@ -1,0 +1,30 @@
+---
+abstract: "Simple Burrowsâ\x80\x93Wheeler transform demo program"
+author:
+  - 'Robert Bakaric <rbakaric@irb.hr>'
+build_requires:
+  ExtUtils::MakeMaker: '0'
+configure_requires:
+  ExtUtils::MakeMaker: '0'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.142690'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: BWT
+no_index:
+  directory:
+    - t
+    - inc
+provides:
+  BWT::Simple:
+    file: Simple.pm
+    version: '0.01'
+  SA::SuffixArray:
+    file: SuffixArray.pm
+    version: '0.01'
+requires:
+  File::Slurp: '0'
+  Getopt::Long: '0'
+version: '0.01'
